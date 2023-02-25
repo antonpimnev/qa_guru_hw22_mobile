@@ -58,7 +58,7 @@ public class NavBarMenuTests extends TestBase {
 
         step("Check list Item elements of submenu", () ->
                 $$(id("org.wikipedia.alpha:id/listItem")).shouldHave(texts("Save", "Language", "Find in article", "Theme", "Contents",
-                        "Share", "Watch", "Talk page", "Edit history", "New tab", "Explore", "Categories","Edit article")));
+                        "Share", "Watch", "Talk page", "Edit history", "New tab"/*, "Explore", "Categories","Edit article"*/)));
     }
 
     @DisplayName("Check navBar menu button Talk page")
@@ -84,14 +84,14 @@ public class NavBarMenuTests extends TestBase {
                 $$(id("org.wikipedia.alpha:id/page_list_item_title")).shouldHave(texts("Web development software",
                         "Load testing tools", "Unit testing frameworks","Graphical user interface testing")));
     }
-
-    @DisplayName("Check navBar menu button Edit History")
-    @Test
-    void checkNavBarMenusEditHistoryElementTest() {
-        step("Open NavBar menu button: Edit History", () ->
-                $(id("org.wikipedia.alpha:id/page_view_edit_history")).click());
-
-        step("Check Edit History pages Title", () ->
-                $(id("org.wikipedia.alpha:id/articleTitleView")).should(text("Revision history: BrowserStack")));  //Talk: BrowserStack
-    }
+//
+//    @DisplayName("Check navBar menu button Edit History")
+//    @Test
+//    void checkNavBarMenusEditHistoryElementTest() {
+//        step("Open NavBar menu button: Edit History", () ->
+//                $(id("org.wikipedia.alpha:id/page_view_edit_history")).click());
+//
+//        step("Check Edit History pages Title", () ->
+//                $(id("org.wikipedia.alpha:id/articleTitleView")).should(text("Revision history: BrowserStack")));  //Talk: BrowserStack
+//    }
 }

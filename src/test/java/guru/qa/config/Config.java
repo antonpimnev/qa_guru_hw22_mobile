@@ -5,6 +5,7 @@ package guru.qa.config;
         {"system:properties",
                 "classpath:env/${deviceHost}.properties",
                 "classpath:credentials.properties"})
+
 public interface Config extends org.aeonbits.owner.Config {
     @Key("browserstack.user")
     String getBrowserstackUser();
@@ -44,9 +45,6 @@ public interface Config extends org.aeonbits.owner.Config {
 
     @Key("mobile.platformName")
     String mobilePlatformName();
-
-    @Key("browsrrstackPlatformName")
-    String browsrrstackPlatformName();
 
     @Key("mobile.apppackage")
     String mobileAppPackage();
