@@ -13,7 +13,7 @@ public class Browserstack {
         return given()
                 .log().all()
                 .filter(withCustomTemplates())
-                .auth().basic(config.getBrowserstackUser(),config.getBrowserstackKey())
+                .auth().basic(config.login(),config.password())
                 .when()
                 .get(url)
                 .then()

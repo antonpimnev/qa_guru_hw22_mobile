@@ -7,11 +7,11 @@ package guru.qa.config;
                 "classpath:credentials.properties"})
 
 public interface Config extends org.aeonbits.owner.Config {
-    @Key("browserstack.user")
-    String getBrowserstackUser();
+    @Key("login")
+    String login();
 
-    @Key("browserstack.key")
-    String getBrowserstackKey();
+    @Key("password")
+    String password();
 
     @Key("baseURL")
     String baseUrl();
