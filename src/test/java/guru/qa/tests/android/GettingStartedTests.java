@@ -19,7 +19,7 @@ import static io.qameta.allure.Allure.step;
 public class GettingStartedTests extends TestBase {
 
     @Test
-    @DisplayName("Проверка начала работы (экранов онбординга)")
+    @DisplayName("Проверка отображения элементов экранов онбординга")
     void checkGttingStartedOonboardingScreenTest() {
         step("Проверка 'The Free Encyclopedia …in over 300 languages' отображения текста", () -> {
             $(AppiumBy.id("org.wikipedia.alpha:id/primaryTextView"))

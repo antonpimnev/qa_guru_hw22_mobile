@@ -13,7 +13,7 @@ import static org.openqa.selenium.By.id;
 
 @Tags({ @Tag("functional"), @Tag("android") })
 @Feature("Меню навигации")
-@Story("Проверка работы пунктов меню")
+@Story("Проверка работы пунктов навигационного меню")
 @Owner("antonpimnev")
 @Severity(SeverityLevel.CRITICAL)
 public class NavBarMenuTests extends TestBase {
