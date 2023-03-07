@@ -29,9 +29,6 @@ public class TestBase {
             case "mobile":
                 Configuration.browser = MobileDriver.class.getName();
                 break;
-//            case "browserstack":
-//                Configuration.browser = BrowserstackDrivers.class.getName();
-//                break;
         }
         Configuration.timeout = 15000;
         Configuration.pageLoadTimeout = 15000;
@@ -47,14 +44,8 @@ public class TestBase {
     @AfterEach
     public void tearDown() {
         String sessionId = getSessionId();
-//        Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         closeWebDriver();
         if (!System.getProperty("deviceHost").equals("mobile")) Attach.addVideo(sessionId);
-//        switch (deviceHost) {
-//            case "browserstack":
-//                Attach.video(sessionId);
-//                break;
-//        }
     }
 }
