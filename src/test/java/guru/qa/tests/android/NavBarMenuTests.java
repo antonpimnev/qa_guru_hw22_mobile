@@ -1,10 +1,9 @@
 package guru.qa.tests.android;
 
 import guru.qa.tests.TestBase;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
+import io.qameta.allure.*;
+import org.junit.jupiter.api.*;
+
 import static com.codeborne.selenide.CollectionCondition.texts;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
@@ -12,7 +11,11 @@ import static io.appium.java_client.AppiumBy.accessibilityId;
 import static io.qameta.allure.Allure.step;
 import static org.openqa.selenium.By.id;
 
-@Tag("android")
+@Tags({ @Tag("functional"), @Tag("android") })
+@Feature("Меню навигации")
+@Story("Проверка работы пунктов меню")
+@Owner("antonpimnev")
+@Severity(SeverityLevel.CRITICAL)
 public class NavBarMenuTests extends TestBase {
     @BeforeEach
     void clickMoreOptionsForOpenNavBarMenu() {
@@ -27,19 +30,8 @@ public class NavBarMenuTests extends TestBase {
                 $(accessibilityId("More options")).click());
     }
 
-    //На Browserstack падает с ошибкой "Illegal base64 character a" = пока отключил, понижение версии Appium до 8.2.1 не помогло
-//    @DisplayName("Check navBar menu button Share")
-//    @Test
-//    void checkNavBarMenusShareButtonTest() {
-//        step("Open NavBar menu button: Share", () ->
-//                $(id("org.wikipedia.alpha:id/page_share")).click());
-//
-//        step("Check Share menu elements", () ->
-//                $$(id("android:id/text1")).shouldHave(texts("Bluetooth", "Gmail", "Messages", "Drive")));
-//    }
-
-    @DisplayName("Check navBar menu button Revision history")
     @Test
+    @DisplayName("Проверка пункта меню Revision history")
     void checkNavBarMenusRevisionHistoryTest() {
         step("Open NavBar menu button: Revision history", () ->
                 $(id("org.wikipedia.alpha:id/page_view_edit_history")).click());
@@ -48,22 +40,8 @@ public class NavBarMenuTests extends TestBase {
                 $(id("org.wikipedia.alpha:id/articleTitleView")).should(text("Revision history: BrowserStack")));
     }
 
-    //На Browserstack падает с ошибкой "Illegal base64 character a" = пока отключил, понижение версии Appium до 8.2.1 не помогло
-//    @DisplayName("Check navBar menu button CustomizeToolbar")
-//    @Test
-//    void checkNavBarMenusCustomizeToolbarTest() {
-//        step("Open NavBar menu button: CustomizeToolbar", () ->
-//                $(id("org.wikipedia.alpha:id/customize_toolbar")).click());
-//
-//        step("Check header Title elements of menu", () ->
-//                $$(id("org.wikipedia.alpha:id/headerTitle")).shouldHave(texts("Toolbar", "Menu")));
-//
-//        step("Check list Item elements of submenu", () ->
-//                $$(id("org.wikipedia.alpha:id/listItem")).shouldHave(texts("Save", "Language", "Find in article", "Theme", "Contents", "Share", "Watch", "Talk page", "Edit history", "New tab"))); //, "Explore", "Categories","Edit article"
-//    }
-
-    @DisplayName("Check navBar menu button Talk page")
     @Test
+    @DisplayName("Проверка пункта меню Talk page")
     void checkNavBarMenusTalkPageElementTest() {
         step("Open NavBar menu button: Talk page", () ->
                 $(id("org.wikipedia.alpha:id/page_view_talk_page")).click());
@@ -72,8 +50,8 @@ public class NavBarMenuTests extends TestBase {
                 $(id("org.wikipedia.alpha:id/toolbarTitle")).should(text("Talk: BrowserStack")));
     }
 
-    @DisplayName("Check navBar menu button Categories")
     @Test
+    @DisplayName("Проверка пункта меню Categories")
     void checkNavBarMenusCategoriesSubmenuTest() {
         step("Open NavBar menu button: Categories", () ->
                 $(id("org.wikipedia.alpha:id/page_categories")).click());
@@ -85,15 +63,4 @@ public class NavBarMenuTests extends TestBase {
                 $$(id("org.wikipedia.alpha:id/page_list_item_title")).shouldHave(texts("Web development software",
                         "Load testing tools", "Unit testing frameworks","Graphical user interface testing")));
     }
-
-    //Флакает, пока отключил
-//    @DisplayName("Check navBar menu button Edit History")
-//    @Test
-//    void checkNavBarMenusEditHistoryElementTest() {
-//        step("Open NavBar menu button: Edit History", () ->
-//                $(id("org.wikipedia.alpha:id/page_view_edit_history")).click());
-//
-//        step("Check Edit History pages Title", () ->
-//                $(id("org.wikipedia.alpha:id/articleTitleView")).should(text("Revision history: BrowserStack")));  //Talk: BrowserStack
-//    }
 }
